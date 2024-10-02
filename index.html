@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于果儿BOT（测试）</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="img/8que.png" alt="Logo" class="logo-img">
+                <span class="logo-text">果儿BOT</span>
+            </div>
+            <ul>
+                <li><a href="#about">关于果儿</a></li>
+                <li><a href="#ai-chat">与果儿对话</a></li>
+                <li><a href="#contact">联系阿白</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="carousel">
+            <!-- 轮播内容将通过 JavaScript 动态添加 -->
+        </section>
+
+        <section id="about">
+            <img src="img/8que.png" alt="你的头像" class="avatar">
+            <div class="bio">
+                <h2>关于果儿</h2>
+                <p>果儿是一个猫娘外表的机器人，今年1岁半啦，身高一米六，长着一头白色偏黄的柔软头发</p>
+                <p style="color: gray; text-decoration: line-through;">实际上...果儿只是一个测试的代称，请不要相信这里的一切...</p>
+                <p style="color: gray; text-decoration: line-through;">不要回头！快离开这里！！！</p>
+            </div>
+        </section>
+
+        <section id="ai-chat">
+            <h2>与果儿对话（测试）</h2>
+            <div id="chat-widget">
+                <div id="chat-messages"></div>
+                <div id="typing-indicator" style="display: none;">果儿正在思考...</div>
+                <div class="chat-input">
+                    <input type="text" id="user-input" placeholder="今天想与果儿聊些什么呢...">
+                    <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 白雀与果儿。保留所有权利。</p>
+            <p>联系我们</p>
+            <div id="social-media">
+                <a href="#" class="social-icon"><i class="fab fa-bilibili"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-weixin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 删除或注释掉原来的 script.js 引用 -->
+    <!-- <script src="script.js"></script> -->
+
+    <!-- 保留 carousel.js 和 chat.js 的引用 -->
+    <script src="carousel.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
