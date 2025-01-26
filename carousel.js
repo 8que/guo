@@ -75,3 +75,40 @@ function createMessageElement(text, isUser = false) {
     msgDiv.className = `message ${isUser ? 'user' : 'bot'} animate__animated animate__fadeInUp ${window.innerWidth < 480 ? 'mobile' : ''}`;
     // ...保持其他代码不变
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+    document.body.appendChild(overlay);
+
+    // 切换侧边栏
+    function toggleNav() {
+        navLinks.classList.toggle('active');
+        overlay.style.display = navLinks.classList.contains('active') ? 'block' : 'none';
+    }
+
+    // 汉堡菜单点击
+    hamburger.addEventListener('click', toggleNav);
+
+    // 点击遮罩层关闭
+    overlay.addEventListener('click', toggleNav);
+
+    // 窗口resize时关闭侧边栏
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove('active');
+            overlay.style.display = 'none';
+        }
+    });
+
+    // 点击导航项关闭侧边栏（移动端）
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                toggleNav();
+            }
+        });
+    });
+});
