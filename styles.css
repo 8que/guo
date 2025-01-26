@@ -159,38 +159,12 @@ main {
     margin-bottom: 15px;
 }
 
-.message-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
 .message-content {
     max-width: 70%;
     padding: 10px 15px;
     border-radius: 20px;
     line-height: 1.4;
     word-wrap: break-word;
-}
-
-.user-message {
-    flex-direction: row-reverse;
-}
-
-.user-message .message-avatar {
-    margin-right: 0;
-    margin-left: 10px;
-}
-
-.user-message .message-content {
-    background-color: #007bff;
-    color: white;
-}
-
-.ai-message .message-content {
-    background-color: #e9ecef;
-    color: #333;
 }
 
 .chat-input {
@@ -376,33 +350,6 @@ footer {
     background-color: white;
 }
 
-#typing-indicator {
-    padding: 10px;
-    font-style: italic;
-    color: #666;
-}
-
-.typing-animation {
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
-}
-
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
-}
-
 .typing-text {
     display: inline-block;
     overflow: hidden;
@@ -413,12 +360,230 @@ footer {
     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+/* 聊天增强样式 */
+.message-content {
+    position: relative;
+    max-width: 85%;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
+.bot .message-content {
+    background: #fff;
+    border: 2px solid #ffb6c1;
+    border-radius: 25px 25px 25px 5px;
 }
+
+.user .message-content {
+    background: #007bff;
+    color: white;
+    border-radius: 25px 25px 5px 25px;
+}
+
+.cat-ear {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #ffb6c1;
+    transform: rotate(45deg);
+}
+
+.left-ear { top: -8px; left: -5px; }
+.right-ear { top: -8px; right: -5px; }
+
+.message-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.timestamp {
+    margin-right: 10px;
+}
+
+.typing-animation {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+.typing-text {
+    color: #ff69b4;
+    font-style: italic;
+}
+
+/* 输入框动效 */
+#user-input:focus {
+    box-shadow: 0 0 10px rgba(255,182,193,0.5);
+    border-color: #ffb6c1;
+}
+
+.animate__animated {
+    --animate-duration: 0.3s;
+}
+
+/* 删除原有.message相关样式 */
+.message {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    max-width: 80%;
+}
+
+/* 用户消息右对齐 */
+.user {
+    margin-left: auto;
+    flex-direction: row-reverse;
+}
+
+/* 头像样式 */
+.message-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 修改消息内容样式 */
+.message-content {
+    position: relative;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 70%;
+}
+
+.bot .message-content {
+    background: #fff;
+    border: 2px solid #ffb6c1;
+    border-radius: 25px 25px 25px 5px;
+}
+
+.user .message-content {
+    background: #007bff;
+    color: white;
+    border-radius: 25px 25px 5px 25px;
+    margin-left: auto;
+}
+
+/* 加载指示器 */
+#typing-indicator {
+    position: absolute;
+    left: 15px;
+    bottom: 65px; /* 输入框上方10px */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border: 2px solid #ffb6c1;
+}
+
+.typing-emoji {
+    font-size: 1.2em;
+    animation: emoji-bounce 0.8s infinite;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.typing-dots::after {
+    content: "...";
+    font-family: monospace;
+    width: 20px;
+    overflow: hidden;
+    animation: typing-dots 1.5s infinite steps(4);
+}
+
+
+/* 加载指示器布局 */
+#typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 点状动画 */
+.typing-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #ff69b4;
+    border-radius: 50%;
+    animation: dot-bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* 颜文字动画 */
+.typing-emoji {
+    animation: emoji-shake 0.8s infinite;
+}
+
+/* 加载指示器定位 */
+#typing-indicator {
+    position: absolute;
+    left: 20px;
+    bottom: 70px; /* 输入框上方间距 */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffb6c1;
+    display: none; /* 默认隐藏 */
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+}
+
+/* 点状动画 */
+.typing-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #ff69b4;
+    border-radius: 50%;
+    animation: dot-pulse 1.2s infinite ease-in-out;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* 文字动画 */
+.typing-text {
+    color: #ff69b4;
+    font-weight: 500;
+    animation: text-fade 1.5s infinite;
+}
+
+@keyframes text-fade {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+

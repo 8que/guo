@@ -158,3 +158,15 @@ function addMessage(sender, text) {
 }
 // 初始欢迎消息
 addMessage('AI', '喵～你好！我是果儿，有什么可以帮你的喵？（歪头看着你，尾巴轻轻摇晃）喵～');
+
+
+// 为按钮添加涟漪效果
+document.querySelectorAll('.ripple-button').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      this.style.setProperty('--x', e.clientX - rect.left + 'px');
+      this.style.setProperty('--y', e.clientY - rect.top + 'px');
+      this.classList.add('ripple-effect');
+      setTimeout(() => this.classList.remove('ripple-effect'), 600);
+    });
+  });
