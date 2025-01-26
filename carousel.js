@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.getElementById('carousel');
     const carouselItems = [
         { image: 'img/guo (2).jpg', caption: '新鲜多汁的果儿' },
@@ -64,3 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(() => changeSlide(1), 5000);
 });
 
+// 在DOMContentLoaded事件监听器内添加
+window.addEventListener('resize', () => {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+
+// 修改消息创建函数，添加响应式类
+function createMessageElement(text, isUser = false) {
+    // 在原有代码基础上修改className
+    msgDiv.className = `message ${isUser ? 'user' : 'bot'} animate__animated animate__fadeInUp ${window.innerWidth < 480 ? 'mobile' : ''}`;
+    // ...保持其他代码不变
+}

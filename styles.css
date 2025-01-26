@@ -8,6 +8,7 @@ body {
 }
 
 header {
+    height: 75px; /* 新增高度设置 */
     background-color: rgba(255, 255, 255, 0.9);
     position: fixed;
     width: 100%;
@@ -33,7 +34,8 @@ nav {
 .logo-text {
     font-size: 24px;
     font-weight: bold;
-    margin-left: 20px !important; /* 调整图片和文字之间的间距 */
+    margin-left: 20px !important;
+    /* 调整图片和文字之间的间距 */
 }
 
 .logo-img {
@@ -69,7 +71,8 @@ main {
 }
 
 #carousel {
-    height: 80vh; /* 从70vh增加到80vh */
+    height: 80vh;
+    /* 从70vh增加到80vh */
     position: relative;
     overflow: hidden;
     border-radius: 15px;
@@ -367,7 +370,7 @@ footer {
     padding: 15px 20px;
     border-radius: 25px;
     margin: 10px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .bot .message-content {
@@ -390,8 +393,15 @@ footer {
     transform: rotate(45deg);
 }
 
-.left-ear { top: -8px; left: -5px; }
-.right-ear { top: -8px; right: -5px; }
+.left-ear {
+    top: -8px;
+    left: -5px;
+}
+
+.right-ear {
+    top: -8px;
+    right: -5px;
+}
 
 .message-meta {
     display: flex;
@@ -413,8 +423,13 @@ footer {
     margin-right: 10px;
 }
 
-.dot:nth-child(2) { animation-delay: 0.2s; }
-.dot:nth-child(3) { animation-delay: 0.4s; }
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
 
 .typing-text {
     color: #ff69b4;
@@ -423,7 +438,7 @@ footer {
 
 /* 输入框动效 */
 #user-input:focus {
-    box-shadow: 0 0 10px rgba(255,182,193,0.5);
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
     border-color: #ffb6c1;
 }
 
@@ -451,7 +466,7 @@ footer {
     height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* 修改消息内容样式 */
@@ -460,7 +475,7 @@ footer {
     padding: 15px 20px;
     border-radius: 25px;
     margin: 10px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 70%;
 }
 
@@ -481,7 +496,8 @@ footer {
 #typing-indicator {
     position: absolute;
     left: 15px;
-    bottom: 65px; /* 输入框上方10px */
+    bottom: 65px;
+    /* 输入框上方10px */
     background: rgba(255, 255, 255, 0.95);
     padding: 8px 15px;
     border-radius: 20px;
@@ -533,8 +549,13 @@ footer {
     animation: dot-bounce 1.4s infinite ease-in-out;
 }
 
-.dot:nth-child(2) { animation-delay: 0.2s; }
-.dot:nth-child(3) { animation-delay: 0.4s; }
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
 
 /* 颜文字动画 */
 .typing-emoji {
@@ -545,13 +566,15 @@ footer {
 #typing-indicator {
     position: absolute;
     left: 20px;
-    bottom: 70px; /* 输入框上方间距 */
+    bottom: 70px;
+    /* 输入框上方间距 */
     background: rgba(255, 255, 255, 0.95);
     padding: 12px 20px;
     border-radius: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 2px solid #ffb6c1;
-    display: none; /* 默认隐藏 */
+    display: none;
+    /* 默认隐藏 */
     align-items: center;
     gap: 15px;
     z-index: 1000;
@@ -571,8 +594,13 @@ footer {
     animation: dot-pulse 1.2s infinite ease-in-out;
 }
 
-.dot:nth-child(2) { animation-delay: 0.2s; }
-.dot:nth-child(3) { animation-delay: 0.4s; }
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
 
 /* 文字动画 */
 .typing-text {
@@ -582,8 +610,101 @@ footer {
 }
 
 @keyframes text-fade {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 
+/* 新增在styles.css末尾 */
+@media (max-width: 480px) {
+    #carousel {
+        height: 60vh;
+    }
+
+    .carousel-caption {
+        font-size: 1rem;
+        padding: 8px 12px;
+        bottom: 10px;
+        left: 10px;
+    }
+
+    #chat-widget {
+        height: 70vh;
+    }
+
+    .message {
+        max-width: 95%;
+        gap: 8px;
+    }
+
+    .message-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .message-content {
+        max-width: 85%;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    #user-input {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    #send-message {
+        padding: 8px 15px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #carousel {
+        height: 70vh;
+    }
+
+    .bio {
+        max-width: 500px;
+    }
+}
+
+/* 增加基础响应式单位 */
+:root {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        font-size: 13px;
+    }
+}
+
+/* 增强弹性布局 */
+.chat-input {
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#user-input {
+    flex: 1 1 200px;
+}
+
+/* 触摸优化 */
+button,
+.carousel-indicator {
+    min-width: 44px;
+    min-height: 44px;
+}
